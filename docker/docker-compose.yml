@@ -1,0 +1,35 @@
+version: '3'
+services:
+  todobackend:
+    image: todobackend
+    ports:
+     - "3001:3001"
+    networks:
+      - todolist-network
+    restart: always
+  
+  todofrontend:
+    depends_on:
+      - todobackend
+    image: todofrontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_HOST=todobackend
+    networks:
+      - todolist-network
+    restart: always
+  
+  todotests:
+    depends_on:
+      - todobackend
+      - todofrontend
+    image: todotests
+    environment:
+      - FRONT_HOST=todofrontend
+    networks:
+      - todolist-network
+
+networks:
+  todolist-network:
+    driver: bridge
