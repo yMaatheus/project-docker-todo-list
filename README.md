@@ -7,7 +7,7 @@ Esse projeto tem como objetivo estudar e praticar Docker.
 Para ter acesso aos arquivos do projeto você pode clonar usando o seguinte comando:
 
 ```
-git clone 
+git clone git@github.com:yMaatheus/project-docker-todo-list.git
 ```
 
 ## ✒️ Autoria
